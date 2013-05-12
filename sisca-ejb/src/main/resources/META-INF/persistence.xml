@@ -20,16 +20,13 @@
    xsi:schemaLocation="
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-   <persistence-unit name="primary">
-      <!-- If you are running in a production environment, add a managed 
-         data source, this example data source is just for development and testing! -->
-      <!-- The datasource is deployed as <EAR>/META-INF/sisca-ds.xml, you
-         can find it in the source at ear/src/main/application/META-INF/sisca-ds.xml -->
-      <jta-data-source>java:jboss/datasources/siscaDS</jta-data-source>
-      <properties>
-         <!-- Properties for Hibernate -->
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
-         <property name="hibernate.show_sql" value="false" />
-      </properties>
-   </persistence-unit>
+   
+   <persistence-unit name='SiscaPU' transaction-type='JTA'>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>java:jboss/datasources/SiscaDS</jta-data-source>
+        <properties>
+            <property name='hibernate.hbm2ddl.auto' value='update'/>
+        </properties>
+    </persistence-unit>
+    
 </persistence>
