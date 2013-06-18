@@ -14,45 +14,53 @@
 	<!-- google style -->
 	<h:outputStylesheet library="css" name="maia-apps.css" />
 
-	<!-- menu style -->
-	<h:outputStylesheet library="css" name="menu.css" />
+	<!-- google Buttons style -->
+	<h:outputStylesheet library="css" name="css3-buttons.css" />
+	<h:outputStylesheet library="css" name="tiptip.css" />
+	<h:outputScript library="js" name="jquery.tiptip.js"></h:outputScript>
 
+	<!-- primfe faces default -->
+	<h:outputStylesheet library="css" name="default.css" />
+
+
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	    	 // Launch TipTip tooltip
+	        $('.tiptip a.button, .tiptip button').tipTip();
+
+	     	// Toggle the dropdown menu's
+	        $(".dropdown .button, .dropdown button").click(function () {
+	            $(this).parent().find('.dropdown-slider').slideToggle('fast');
+	            $(this).find('span.toggle').toggleClass('active');
+	            return false;
+	        });
+
+	     	// Close open dropdown slider/s by clicking elsewhwere on page
+	        $(document).bind('click', function (e) {
+	            if (e.target.id != $('.dropdown').attr('class')) {
+	                $('.dropdown-slider').slideUp();
+	                $('span.toggle').removeClass('active');
+	            }
+	        }); // END document.bind
+	    });
+	</script>
 </h:head>
 
 <h:body>
 
-	<table width="100%">
-		<tbody>
-			<tr>
-				<td>
-					<!-- header --> <ui:include src="header.xhtml" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<!-- Menu Principal -->
-					<div>
-						<ui:include src="menu-top.xhtml" />
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<!-- content --> 
-					<ui:insert name="content">
-						<span>Pagina en construccion</span>
-					</ui:insert>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<!-- footer --> <ui:include src="footer.xhtml" />
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<!-- header -->
+	<ui:include src="header.xhtml" />
 
+	<!-- Menu Principal -->
+	<ui:include src="menu-top.xhtml" />
 
+	<!-- content -->
+	<ui:insert name="content">
+		<span>Pagina en construccion</span>
+	</ui:insert>
+
+	<!-- footer -->
+	<ui:include src="footer.xhtml" />
 </h:body>
 </html>
 

@@ -2,7 +2,6 @@ package org.softgreen.sisca.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -10,6 +9,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="local")
 public class Local implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,10 +29,6 @@ public class Local implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_sucursal")
 	private Sucursal sucursal;
-
-	//bi-directional many-to-one association to TrabajadorHistorialLaboral
-	@OneToMany(mappedBy="local")
-	private List<TrabajadorHistorialLaboral> trabajadorHistorialLaborals;
 
 	public Local() {
 	}
@@ -83,14 +79,6 @@ public class Local implements Serializable {
 
 	public void setSucursal(Sucursal sucursal) {
 		this.sucursal = sucursal;
-	}
-
-	public List<TrabajadorHistorialLaboral> getTrabajadorHistorialLaborals() {
-		return this.trabajadorHistorialLaborals;
-	}
-
-	public void setTrabajadorHistorialLaborals(List<TrabajadorHistorialLaboral> trabajadorHistorialLaborals) {
-		this.trabajadorHistorialLaborals = trabajadorHistorialLaborals;
 	}
 
 }

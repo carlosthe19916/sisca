@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition>
+
+	<p:dialog >
+			<h:form>
+				<table>
+					<tr>
+						<td><h:outputLabel>Razon Social:</h:outputLabel></td>
+						<td><h:inputText id="txtRazonSocial"
+								value="#{EmpresaMB.empresa.razonSocial}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel>RUC:</h:outputLabel></td>
+						<td><h:inputText id="txtRuc"
+								value="#{EmpresaMB.empresa.numeroRuc}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel>Direccion:</h:outputLabel></td>
+						<td><h:inputText id="txtDireccion"
+								value="#{EmpresaMB.empresa.direccion}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel>Ubigeo:</h:outputLabel></td>
+						<td><h:inputText id="txtUbigeo"
+								value="#{EmpresaMB.empresa.ubigeo}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div>
+								<h:commandLink action="#" styleClass="button"
+									actionListener="#{EmpresaMB.saveEmpresa()}">
+									<span class="icon icon67"></span>
+									<span class="label">Guardar</span>
+								</h:commandLink>
+								<h:commandLink action="#" styleClass="button">
+									<span class="icon icon35"></span>
+									<span class="label">cancelar</span>
+								</h:commandLink>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</h:form>
+		</p:dialog>
+
+</ui:composition>
+</html>
+
+

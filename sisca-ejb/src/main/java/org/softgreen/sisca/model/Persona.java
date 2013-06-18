@@ -11,6 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="persona")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,9 +28,6 @@ public class Persona implements Serializable {
 	@Column(name="fecha_nacimiento")
 	private Date fechaNacimiento;
 
-	@Column(name="grado_instruccion")
-	private String gradoInstruccion;
-
 	private String prenombres;
 
 	@Column(name="primer_apellido")
@@ -41,6 +39,11 @@ public class Persona implements Serializable {
 	private String sexo;
 
 	private String ubigeo;
+
+	//bi-directional many-to-one association to GradoInstruccion
+	@ManyToOne
+	@JoinColumn(name="id_grado_instruccion")
+	private GradoInstruccion gradoInstruccion;
 
 	//bi-directional many-to-one association to Trabajador
 	@OneToMany(mappedBy="persona")
@@ -81,14 +84,6 @@ public class Persona implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getGradoInstruccion() {
-		return this.gradoInstruccion;
-	}
-
-	public void setGradoInstruccion(String gradoInstruccion) {
-		this.gradoInstruccion = gradoInstruccion;
-	}
-
 	public String getPrenombres() {
 		return this.prenombres;
 	}
@@ -127,6 +122,14 @@ public class Persona implements Serializable {
 
 	public void setUbigeo(String ubigeo) {
 		this.ubigeo = ubigeo;
+	}
+
+	public GradoInstruccion getGradoInstruccion() {
+		return this.gradoInstruccion;
+	}
+
+	public void setGradoInstruccion(GradoInstruccion gradoInstruccion) {
+		this.gradoInstruccion = gradoInstruccion;
 	}
 
 	public List<Trabajador> getTrabajadors() {

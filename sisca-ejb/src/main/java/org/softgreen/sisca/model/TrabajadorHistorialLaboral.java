@@ -23,9 +23,6 @@ public class TrabajadorHistorialLaboral implements Serializable {
 	@Column(name="codigo_biometrico")
 	private String codigoBiometrico;
 
-	@Column(name="condicion_laboral")
-	private String condicionLaboral;
-
 	@Column(name="documento_contrato")
 	private String documentoContrato;
 
@@ -43,15 +40,16 @@ public class TrabajadorHistorialLaboral implements Serializable {
 	@Column(name="fecha_ingreso")
 	private Date fechaIngreso;
 
-	//bi-directional many-to-one association to Area
-	@ManyToOne
-	@JoinColumn(name="id_area")
-	private Area area;
+	@Column(name="id_area")
+	private Integer idArea;
 
-	//bi-directional many-to-one association to Local
+	@Column(name="id_local")
+	private Integer idLocal;
+
+	//bi-directional many-to-one association to CondicionLaboral
 	@ManyToOne
-	@JoinColumn(name="id_local")
-	private Local local;
+	@JoinColumn(name="id_condicion_laboral")
+	private CondicionLaboral condicionLaboral;
 
 	//bi-directional many-to-one association to Trabajador
 	@ManyToOne
@@ -83,14 +81,6 @@ public class TrabajadorHistorialLaboral implements Serializable {
 
 	public void setCodigoBiometrico(String codigoBiometrico) {
 		this.codigoBiometrico = codigoBiometrico;
-	}
-
-	public String getCondicionLaboral() {
-		return this.condicionLaboral;
-	}
-
-	public void setCondicionLaboral(String condicionLaboral) {
-		this.condicionLaboral = condicionLaboral;
 	}
 
 	public String getDocumentoContrato() {
@@ -133,20 +123,28 @@ public class TrabajadorHistorialLaboral implements Serializable {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public Area getArea() {
-		return this.area;
+	public Integer getIdArea() {
+		return this.idArea;
 	}
 
-	public void setArea(Area area) {
-		this.area = area;
+	public void setIdArea(Integer idArea) {
+		this.idArea = idArea;
 	}
 
-	public Local getLocal() {
-		return this.local;
+	public Integer getIdLocal() {
+		return this.idLocal;
 	}
 
-	public void setLocal(Local local) {
-		this.local = local;
+	public void setIdLocal(Integer idLocal) {
+		this.idLocal = idLocal;
+	}
+
+	public CondicionLaboral getCondicionLaboral() {
+		return this.condicionLaboral;
+	}
+
+	public void setCondicionLaboral(CondicionLaboral condicionLaboral) {
+		this.condicionLaboral = condicionLaboral;
 	}
 
 	public Trabajador getTrabajador() {

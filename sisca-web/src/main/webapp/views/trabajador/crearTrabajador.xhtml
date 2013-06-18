@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition>
+
+	<p:dialog id="modalDialog" header="Registrar Trabajador"
+		widgetVar="dlgCrearTrabajador" modal="true" height="480">
+
+		<h:form>			
+			<p:wizard>
+				<p:tab id="datosPersonales" title="Dat. Personales">
+					<ui:include src="persona.xhtml" />
+				</p:tab>
+				<p:tab id="datosLaborales" title="Dat. Laborales">
+					<ui:include src="trabajador.xhtml" />
+				</p:tab>
+			</p:wizard>
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>
+</html>
+
+

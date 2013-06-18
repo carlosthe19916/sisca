@@ -10,6 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="area")
 public class Area implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,14 +25,19 @@ public class Area implements Serializable {
 	@Column(name="tipo_area")
 	private String tipoArea;
 
+	//bi-directional many-to-one association to Area
+	@ManyToOne
+	@JoinColumn(name="id_area_padre")
+	private Area area;
+
+	//bi-directional many-to-one association to Area
+	@OneToMany(mappedBy="area")
+	private List<Area> areas;
+
 	//bi-directional many-to-one association to Empresa
 	@ManyToOne
 	@JoinColumn(name="numero_ruc")
 	private Empresa empresa;
-
-	//bi-directional many-to-one association to TrabajadorHistorialLaboral
-	@OneToMany(mappedBy="area")
-	private List<TrabajadorHistorialLaboral> trabajadorHistorialLaborals;
 
 	public Area() {
 	}
@@ -68,20 +74,28 @@ public class Area implements Serializable {
 		this.tipoArea = tipoArea;
 	}
 
+	public Area getArea() {
+		return this.area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
+	}
+
+	public List<Area> getAreas() {
+		return this.areas;
+	}
+
+	public void setAreas(List<Area> areas) {
+		this.areas = areas;
+	}
+
 	public Empresa getEmpresa() {
 		return this.empresa;
 	}
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
-	}
-
-	public List<TrabajadorHistorialLaboral> getTrabajadorHistorialLaborals() {
-		return this.trabajadorHistorialLaborals;
-	}
-
-	public void setTrabajadorHistorialLaborals(List<TrabajadorHistorialLaboral> trabajadorHistorialLaborals) {
-		this.trabajadorHistorialLaborals = trabajadorHistorialLaborals;
 	}
 
 }
