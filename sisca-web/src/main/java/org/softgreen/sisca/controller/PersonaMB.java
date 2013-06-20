@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 
 import org.softgreen.sisca.facade.PersonaFacadeLocal;
 import org.softgreen.sisca.model.Persona;
 
+@ManagedBean
 public class PersonaMB implements Serializable{
 
 	private static final long serialVersionUID = 1L;

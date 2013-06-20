@@ -23,16 +23,16 @@ public class TrabajadorMB implements Serializable {
 	private Trabajador trabajador;
 	private List<Trabajador> listaTrabajadores;
 		
-	@ManagedProperty("#{persona}")
+	/*@ManagedProperty("#{persona}")
     private PersonaMB persona;
 	
 	@ManagedProperty("#{trabajadorHistorialLaboral}")
     private TrabajadorHistorialLaboralMB trabajadorHistorialLaboral;
-	
+	*/
 	public TrabajadorMB(){
 		this.trabajador = new Trabajador();
 		this.listaTrabajadores = new ArrayList<Trabajador>();
-		this.trabajador.setPersona(persona.getPersona());
+		//this.trabajador.setPersona(persona.getPersona());
 	}
 	
 	public void saveTrabajador(){

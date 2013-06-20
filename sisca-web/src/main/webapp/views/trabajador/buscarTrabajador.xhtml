@@ -31,12 +31,18 @@
 							<h:form>
 								<table>
 									<tr>
-										<td><h:outputLabel>Buscar:</h:outputLabel></td>
-										<td><p:inputText id="txtBuscar" size="80" /> <p:watermark
-												value="search for" for="txtBuscar" /></td>
-										<td><h:commandLink action="#" styleClass="button">
+										<td>
+											<h:outputLabel>Buscar:</h:outputLabel>
+										</td>
+										<td>
+											<p:inputText id="txtBuscar" size="80" /> 
+											<p:watermark value="search for" for="txtBuscar" />
+										</td>
+										<td>
+											<h:commandLink action="#" styleClass="button">
 												<span class="icon icon198"></span>
-											</h:commandLink></td>
+											</h:commandLink>
+										</td>
 									</tr>
 								</table>
 							</h:form>
@@ -47,9 +53,8 @@
 						<div>
 							<div class="buttons">
 								<h:form>
-									<div class="tiptip">
-										<h:commandLink styleClass="button left"
-											title="Nuevo Trabajador" onclick="dlgCrearTrabajador.show();return false;">
+									<div class="tiptip">									
+										<h:commandLink styleClass="button left" title="Nuevo Trabajador" onclick="dlgCrearTrabajador.show();return false;">
 											<span class="icon icon3"></span>
 											<span class="label">Nuevo</span>
 										</h:commandLink>
