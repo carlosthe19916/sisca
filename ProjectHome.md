@@ -1,0 +1,1 @@
+El Software, es un sistema que utiliza la Base de Datos generado por un Reloj Digital y de esta manera poder monitorear fácilmente todo el tráfico de ingresos y salidas de los trabajadores a una empresa, además puede visualizar Reportes como: entradas, tardanzas, faltas, salidas, horas extras, salidas antes de tiempo, refrigerios, permisos, entre muchos otros Reportes.
